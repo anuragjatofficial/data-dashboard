@@ -1,25 +1,33 @@
-import { ChartData } from "chart.js";
+import {
+  Chart as ChartJS,
+  ChartData,
+  ArcElement,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  RadialLinearScale,
+} from "chart.js";
 import React from "react";
-import { Pie } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Radar } from "react-chartjs-2";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(
+  ArcElement,
+  Tooltip,
+  Legend,
+  RadialLinearScale,
+  
+);
 
-export default function SubCategory() {
-  const data: ChartData<"pie", number[]> = {
-    labels: [
-      "Flexi Cap Fund",
-      "ELSS",
-      "Small Cap Fund ",
-      "Green",
-      "Purple",
-      "Orange",
-    ],
+export default function TopSectorComponent() {
+  const data: ChartData<"radar", number[]> = {
+    labels: ["Equity", "Gold", "Bonds", "Govt. Securities"],
     datasets: [
       {
         label: "My First Dataset",
         data: [12, 19, 3, 5, 2, 3],
-
         backgroundColor: [
           "#75D6FF",
           "#75FFFF",
@@ -28,21 +36,21 @@ export default function SubCategory() {
           "#FF8E5D",
           "#FFC46A",
         ],
-        hoverOffset: 4,
-        borderWidth: 1,
       },
     ],
   };
+
   return (
     <div className="w-[300px] bg-white h-[450px] flex flex-col rounded-md">
       <div className=" h-fit text-left px-4 py-4">
         <h2 className="text-base pb-2">Sub-Category</h2>
         <p className="text-xs font-normal text-gray-500">
-          The assets are distributed between equity and cash & equivalents.
+          A mutual fund distribution represents the earnings of a fund being
+          passed on to the individual investor or unit holder of the fund.{" "}
         </p>
       </div>
       <div className="  content-between h-[86%] mb-4 mx-4  items-center flex">
-        <Pie data={data}  />
+        <Radar data={data} />
       </div>
     </div>
   );
