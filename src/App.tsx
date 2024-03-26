@@ -1,6 +1,3 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import BaseComponent from './components/BaseComponent';
 import SubCategory from './components/SubCategory';
 import FundContribution from './components/FundContribution';
